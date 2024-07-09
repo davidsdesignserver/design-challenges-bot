@@ -12,6 +12,7 @@
         "strict": true,
         "outDir": "./build",
         "skipLibCheck": true,
+        "resolveJsonModule": true
     },
     "include": ["src"]
 }

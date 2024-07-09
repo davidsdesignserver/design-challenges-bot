@@ -1,0 +1,12 @@
+{
+    "leaderboards": [
+        {
+            "name": "Beginner",
+            "database": "beginner"
+        },
+        {
+            "name": "Advanced",
+            "database": "advanced"
+        }
+    ] 
+}

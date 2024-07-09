@@ -2,6 +2,7 @@ import dotenv from 'dotenv';
 import { Client, Collection, Events, GatewayIntentBits, Interaction, SlashCommandBuilder } from 'discord.js';
 import fs from 'node:fs';
 import path from 'node:path';
+import config from '../config.json';
 
 dotenv.config();
 
@@ -33,6 +34,16 @@ for (const folder of commandFolders) {
 }
 
 client.on(Events.InteractionCreate, async interaction => {
+	if (interaction.isAutocomplete()) { // Leaderboard option is the only autocomplete option as of now.
+		const leaderboards = config.leaderboards;
+
+		const filtered = leaderboards.filter(choice => choice.name.toLowerCase().startsWith(interaction.options.getFocused(true).value.toLowerCase())).slice(0, 25);
+
+		await interaction.respond(
+			filtered.map(choice => ({ name: choice.name, value: choice.name })),
+		);
+	}
+
 	if (!interaction.isChatInputCommand()) return;
 
 	const command = client.commands.get(interaction.commandName);
@@ -44,12 +55,12 @@ client.on(Events.InteractionCreate, async interaction => {
 
 	try {
 		await command.execute(interaction);
-	} catch (error) {
+	} catch (error: any) {
 		console.error(error);
 		if (interaction.replied || interaction.deferred) {
-			await interaction.followUp({ content: 'There was an error while executing this command!', ephemeral: true });
+			await interaction.followUp({ content: error.message, ephemeral: true });
 		} else {
-			await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+			await interaction.reply({ content: error.message, ephemeral: true });
 		}
 	}
 });
