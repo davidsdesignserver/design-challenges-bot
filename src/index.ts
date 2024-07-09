@@ -28,13 +28,15 @@ for (const folder of commandFolders) {
 		if ('data' in command && 'execute' in command) {
 			client.commands.set(command.data.name, command);
 		} else {
-			console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
+			console.log(`[WARNING] The command at ${filePath} is missing a required 'data' or 'execute' property.`);
 		}
 	}
 }
 
 client.on(Events.InteractionCreate, async interaction => {
-	if (interaction.isAutocomplete()) { // Leaderboard option is the only autocomplete option as of now.
+	if (interaction.isAutocomplete()) {
+		// Leaderboard option is the only autocomplete option as of now.
+
 		const leaderboards = config.leaderboards;
 
 		const filtered = leaderboards.filter(choice => choice.name.toLowerCase().startsWith(interaction.options.getFocused(true).value.toLowerCase())).slice(0, 25);

@@ -6,9 +6,9 @@ module.exports = {
 		.setDescription('DDS Leaderboard Bot Commands'),
 	async execute(interaction: ChatInputCommandInteraction) {
 		const embed = new EmbedBuilder()
-			.setTitle("DDS Leaderboard Bot Help")
+			.setTitle('DDS Leaderboard Bot Help')
 			.setColor(Colors.Yellow)
-			.setDescription(help)
+			.setDescription(help);
 
 		await interaction.reply({ ephemeral: true, embeds: [embed] });
 	},
@@ -20,4 +20,4 @@ const help = `**/rank** Get the rank of yourself or another member.
 
 **/add** Admin only command to add points to a member.
 
-**/set** Admin only command to set points of a member. Set points to 0 to remove from leaderboard.`
+**/set** Admin only command to set points of a member. Set points to 0 to remove from leaderboard.`;
