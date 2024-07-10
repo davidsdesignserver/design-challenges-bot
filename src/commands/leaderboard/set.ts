@@ -31,13 +31,9 @@ module.exports = {
         const leaderboardName = interaction.options.getString('leaderboard');
         const points = interaction.options.getNumber('points');
 
-        if (user == null || user == null || leaderboardName == null || points == null) throw new Error('All options must be specified.');
+        if (user == null || user == null || leaderboardName == null || points == null || interaction.member == null) throw new Error('All options must be specified.');
 
-        const member = await interaction.guild?.members.fetch(interaction.user.id);
-
-        if (!member) throw new Error('Error fetching member.');
-
-        checkAdmin(member);
+        checkAdmin(interaction.member);
 
         const leaderboard = config.leaderboards.find(leaderboard => leaderboard.name == leaderboardName);
 
