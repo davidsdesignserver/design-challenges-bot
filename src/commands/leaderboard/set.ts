@@ -1,6 +1,6 @@
 import { ChatInputCommandInteraction, SlashCommandBuilder } from 'discord.js';
 import { checkAdmin } from '../../checks';
-import config from '../../../config.json';
+import config from '../../config.json';
 import { updateMember } from '../../database/leaderboard';
 
 module.exports = {

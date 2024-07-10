@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 import { Client, Collection, Events, GatewayIntentBits, Interaction, SlashCommandBuilder } from 'discord.js';
 import fs from 'node:fs';
 import path from 'node:path';
-import config from '../config.json';
+import config from './config.json';
 
 dotenv.config();
 

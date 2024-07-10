@@ -1,5 +1,5 @@
 import { ActionRowBuilder, ButtonBuilder, ButtonInteraction, ButtonStyle, ChatInputCommandInteraction, Colors, EmbedBuilder, Interaction, SlashCommandBuilder } from 'discord.js';
-import config from '../../../config.json';
+import config from '../../config.json';
 import { getLeaderboard } from '../../database/leaderboard';
 
 // For spacing on embed

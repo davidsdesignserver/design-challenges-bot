@@ -1,5 +1,5 @@
 import { ChatInputCommandInteraction, Colors, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
-import config from '../../../config.json';
+import config from '../../config.json';
 import { getMember, getRank } from '../../database/leaderboard';
 
 module.exports = {
