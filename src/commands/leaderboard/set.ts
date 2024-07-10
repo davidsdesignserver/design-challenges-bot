@@ -41,6 +41,6 @@ module.exports = {
 
         await updateMember(user.id, leaderboard.database, { set: points });
 
-        await interaction.reply({ ephemeral: true, content: 'Set <@' + user.id + '> to ' + points + ' points.' });
+        await interaction.reply({ content: 'Set <@' + user.id + '> to ' + points + ' points.' });
     },
 };

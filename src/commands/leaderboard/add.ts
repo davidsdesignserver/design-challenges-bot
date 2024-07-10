@@ -41,6 +41,6 @@ module.exports = {
 
         await updateMember(user.id, leaderboard.database, { increment: points });
 
-        await interaction.reply({ ephemeral: true, content: 'Added ' + points + ' points to <@' + user.id + '>.' });
+        await interaction.reply({ content: 'Added ' + points + ' points to <@' + user.id + '>.' });
  	},
 };
